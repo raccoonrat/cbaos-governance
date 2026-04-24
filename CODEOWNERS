@@ -1,0 +1,50 @@
+# CBA-OS repository ownership model (suggested initial draft)
+#
+# Replace @cbaos/... with actual GitHub org/team handles before use.
+#
+# Notes:
+# - GitHub recognizes CODEOWNERS in the repository root, /docs, or /.github.
+# - Keep this file aligned with `.github/CODEOWNERS` if you use both.
+#
+
+# -----------------------------------------------------------------------------
+# Global fallback owners
+# -----------------------------------------------------------------------------
+* @cbaos/program-core @cbaos/repo-governors
+
+# -----------------------------------------------------------------------------
+# Root docs
+# -----------------------------------------------------------------------------
+/README.md              @cbaos/program-core @cbaos/repo-governors
+/CONTRIBUTING.md        @cbaos/repo-governors @cbaos/program-core
+/SECURITY.md            @cbaos/security-leads @cbaos/repo-governors
+/CHANGELOG.md           @cbaos/repo-governors
+
+# -----------------------------------------------------------------------------
+# Charter / Org / Policy
+# -----------------------------------------------------------------------------
+/CHARTER/               @cbaos/program-core @cbaos/chief-scientists
+/ORG/                   @cbaos/program-core @cbaos/repo-governors
+/REPO_POLICY/           @cbaos/program-core @cbaos/repo-governors
+
+# -----------------------------------------------------------------------------
+# Governance / claims / release / evidence
+# -----------------------------------------------------------------------------
+/CLAIMS/                @cbaos/chief-scientists @cbaos/release-governance
+/RELEASE/               @cbaos/release-governance @cbaos/program-core
+/EVIDENCE/              @cbaos/evidence-engine @cbaos/release-governance
+
+# -----------------------------------------------------------------------------
+# GitHub governance & automation
+# -----------------------------------------------------------------------------
+/.github/               @cbaos/repo-governors @cbaos/security-leads
+/.github/workflows/     @cbaos/repo-governors @cbaos/security-leads
+/.github/ISSUE_TEMPLATE/ @cbaos/repo-governors @cbaos/program-core
+/.github/pull_request_template.md @cbaos/repo-governors @cbaos/program-core
+
+# -----------------------------------------------------------------------------
+# Multilingual / geo-sensitive content (filename convention)
+# -----------------------------------------------------------------------------
+*_zh_*.md               @cbaos/geo-obligation @cbaos/release-governance
+*_cn_*.md               @cbaos/geo-obligation @cbaos/release-governance
+

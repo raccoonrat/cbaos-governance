@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/raccoonrat/cbaos-governance/schemas/decision_log_entry.json",
+  "title": "CBAOS Decision Log Entry",
+  "type": "object",
+  "required": [
+    "decision_id",
+    "decided_at",
+    "title",
+    "status",
+    "accountable",
+    "summary"
+  ],
+  "properties": {
+    "decision_id": {
+      "type": "string",
+      "description": "Stable unique id, e.g. DL-2026-0001"
+    },
+    "decided_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "RFC3339 timestamp in UTC"
+    },
+    "title": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["proposed", "accepted", "superseded", "rejected"]
+    },
+    "accountable": {
+      "type": "string",
+      "description": "Person or role accountable for the decision"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Short narrative of the decision"
+    },
+    "context": {
+      "type": "string",
+      "description": "Background and constraints"
+    },
+    "options_considered": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "evidence_pack_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "related_urls": {
+      "type": "array",
+      "items": { "type": "string", "format": "uri" }
+    },
+    "supersedes": {
+      "type": "string",
+      "description": "decision_id of a prior entry this replaces"
+    },
+    "reviewers": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}

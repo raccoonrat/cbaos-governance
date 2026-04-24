@@ -1,0 +1,68 @@
+name: 失效模式
+description: 报告失效模式、攻击面或保证/治理缺陷
+title: "[failure-mode] "
+labels: ["failure-mode"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: 失效摘要
+      description: 何处失败、漂移或变得脆弱？
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: 失效类别
+      options:
+        - Object drift
+        - Over-claim
+        - Runtime enforcement defect
+        - Fail-safe bypass
+        - Evidence integrity defect
+        - Release-governance defect
+        - Track A / Track B mixing
+        - Multilingual / geo gating defect
+        - Security-sensitive implementation issue
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: observed_scope
+    attributes:
+      label: 观测范围
+      description: 在何处观测到？仓库 / 工件 / 流程 / 发布路径
+    validations:
+      required: true
+  - type: textarea
+    id: guarantee_risk
+    attributes:
+      label: 保证风险
+      description: 哪条有界保证或发布主张处于风险中？
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 复现 / 触发条件
+      description: 可安全分享的复现说明或触发条件
+    validations:
+      required: false
+  - type: textarea
+    id: proposed_fix
+    attributes:
+      label: 建议缓解措施
+      description: 遏制、修复或重设计的建议
+    validations:
+      required: false
+  - type: dropdown
+    id: severity
+    attributes:
+      label: 严重级别
+      options:
+        - Critical
+        - High
+        - Medium
+        - Low
+    validations:
+      required: true

@@ -1,0 +1,5 @@
+# 将下方占位替换为真实 GitHub 用户或团队（@org/team-name）。
+# GitHub 仅在仓库根目录、docs/ 或 .github/ 下的 CODEOWNERS 文件中生效。
+# 建议：将本文件内容同步到 .github/CODEOWNERS（或从本仓库复制策略到各业务仓库）。
+
+* @your-org/cbaos-governance-maintainers

@@ -1,0 +1,26 @@
+name: 改进建议
+description: 提议新增治理模板、门禁项或文档结构
+title: "[rfc] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 要解决的问题
+      description: 当前流程或文档哪里不够用？
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 提议方案
+      description: 可含目录/文件名级草案
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: 影响面
+      description: 哪些团队/仓库需要跟随变更？
+    validations:
+      required: false

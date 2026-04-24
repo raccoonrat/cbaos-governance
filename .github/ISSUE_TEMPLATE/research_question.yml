@@ -1,0 +1,53 @@
+name: 研究问题
+description: 提出或跟踪与 CBA-OS 相关的科学问题（bounded guarantee production）
+title: "[research] "
+labels: ["research-question"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: 科学问题
+      description: 清晰描述待研究的问题。
+      placeholder: 我们需要回答的科学问题是什么？
+    validations:
+      required: true
+  - type: dropdown
+    id: pillar
+    attributes:
+      label: 主要支柱
+      options:
+        - Guarantee Theory
+        - Runtime / Kernel
+        - Evidence / Benchmark
+        - Release / Governance
+        - Geo-Semantic / Multilingual
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: 为何重要？
+      description: 该问题与有界保证生产的关系。
+    validations:
+      required: true
+  - type: textarea
+    id: gap
+    attributes:
+      label: 当前缺口
+      description: 今天缺什么？为何未解决？
+    validations:
+      required: true
+  - type: textarea
+    id: expected_artifact
+    attributes:
+      label: 预期产出工件
+      description: 例如 RFC、theorem note、原型、schema、benchmark 切片等。
+    validations:
+      required: true
+  - type: textarea
+    id: guarantee_impact
+    attributes:
+      label: 对保证边界的影响
+      description: 解决该问题将如何加强或澄清保证边界？
+    validations:
+      required: false

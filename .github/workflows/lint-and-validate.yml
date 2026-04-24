@@ -1,0 +1,132 @@
+name: lint-and-validate
+
+on:
+  pull_request:
+    branches:
+      - main
+      - "release/**"
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate-repo-structure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify required files exist
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          required_files=(
+            "README.md"
+            "CONTRIBUTING.md"
+            "SECURITY.md"
+            "CHANGELOG.md"
+            "CODEOWNERS"
+            "CHARTER/program_charter.md"
+            "ORG/org_structure.md"
+            "REPO_POLICY/repo_policy.md"
+            ".github/pull_request_template.md"
+          )
+
+          for f in "${required_files[@]}"; do
+            if [ ! -f "$f" ]; then
+              echo "Missing required file: $f"
+              exit 1
+            fi
+          done
+
+      - name: Verify required issue templates exist
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          required_templates=(
+            ".github/ISSUE_TEMPLATE/research_question.yml"
+            ".github/ISSUE_TEMPLATE/artifact_gap.yml"
+            ".github/ISSUE_TEMPLATE/failure_mode.yml"
+            ".github/ISSUE_TEMPLATE/release_blocker.yml"
+            ".github/ISSUE_TEMPLATE/schema_or_policy_change.yml"
+          )
+
+          for f in "${required_templates[@]}"; do
+            if [ ! -f "$f" ]; then
+              echo "Missing required issue template: $f"
+              exit 1
+            fi
+          done
+
+      - name: Validate YAML syntax (Ruby)
+        shell: bash
+        run: |
+          set -euo pipefail
+          ruby -ryaml -e 'ARGV.each { |p| YAML.load_file(p) }' $(find .github -name "*.yml" -o -name "*.yaml")
+
+      - name: Basic Markdown hygiene (tabs + long lines)
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          md_files=$(find . -type f -name "*.md" ! -path "./.git/*")
+          if [ -z "$md_files" ]; then
+            exit 0
+          fi
+
+          while IFS= read -r f; do
+            if grep -nP "\t" "$f" >/dev/null; then
+              echo "Tab characters found in markdown file: $f"
+              exit 1
+            fi
+
+            # 220 chars is a soft guardrail for review readability
+            if awk 'length($0) > 220 { print NR ":" length($0) ":" $0; found=1 } END { exit found ? 0 : 1 }' "$f"; then
+              echo "Markdown file has lines longer than 220 chars: $f"
+              exit 1
+            fi
+          done <<< "$md_files"
+
+      - name: Basic sensitive-pattern scan (lightweight)
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Intentionally lightweight and conservative.
+          # NOT a replacement for enterprise secret scanning.
+          patterns=(
+            "BEGIN PRIVATE KEY"
+            "AKIA[0-9A-Z]{16}"
+            "ghp_[A-Za-z0-9]{20,}"
+            "github_pat_[A-Za-z0-9_]{20,}"
+          )
+
+          files=$(find . -type f \
+            ! -path "./.git/*" \
+            ! -path "./node_modules/*" \
+            ! -path "./.venv/*")
+
+          for p in "${patterns[@]}"; do
+            if grep -RInE "$p" $files >/dev/null; then
+              echo "Potential sensitive pattern detected: $p"
+              exit 1
+            fi
+          done
+
+      - name: Validate CODEOWNERS basic shape
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! grep -qE '^\* ' CODEOWNERS; then
+            echo "CODEOWNERS should include a global fallback rule (e.g. '* @team')."
+            exit 1
+          fi
+
+      - name: Summary
+        run: echo "lint-and-validate checks passed."
+

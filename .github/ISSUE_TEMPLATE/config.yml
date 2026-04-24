@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 治理文档索引
+    url: https://github.com/raccoonrat/cbaos-governance#readme
+    about: 查阅 CHARTER / ORG / CLAIMS / RELEASE / EVIDENCE 目录（将 URL 替换为实际仓库地址）。

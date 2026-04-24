@@ -1,0 +1,31 @@
+name: governance-ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-json:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate decision_log_schema.json parses
+        run: python3 -c "import json, pathlib; json.load(pathlib.Path('EVIDENCE/decision_log_schema.json').open())"
+
+  validate-templates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify governance template files exist
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f ".github/pull_request_template.md"
+          test -f ".github/ISSUE_TEMPLATE/research_question.yml"
+          test -f ".github/ISSUE_TEMPLATE/artifact_gap.yml"
+          test -f ".github/ISSUE_TEMPLATE/failure_mode.yml"
+          test -f ".github/ISSUE_TEMPLATE/release_blocker.yml"
+          test -f ".github/ISSUE_TEMPLATE/schema_or_policy_change.yml"
+          test -f "CODEOWNERS"

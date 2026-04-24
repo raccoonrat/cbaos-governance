@@ -1,0 +1,58 @@
+name: Schema 或策略变更
+description: 提议变更 evidence schema、合同结构或治理策略
+title: "[schema-policy] "
+labels: ["policy-task", "schema-task"]
+body:
+  - type: dropdown
+    id: change_type
+    attributes:
+      label: 变更类型
+      options:
+        - Evidence schema
+        - Acceptance contract
+        - Release evidence pack
+        - Claim discipline
+        - Guarantee grammar
+        - Repo policy
+        - Release policy
+        - Multilingual / geo policy
+    validations:
+      required: true
+  - type: textarea
+    id: current_state
+    attributes:
+      label: 当前状态
+      description: 今天已存在什么？
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_change
+    attributes:
+      label: 提议变更
+      description: 具体要改变什么？
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: 理由
+      description: 为何需要此变更？
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: 影响
+      description: 将影响哪些工件、流程或发布决策？
+    validations:
+      required: true
+  - type: dropdown
+    id: requires_rfc
+    attributes:
+      label: 是否需要 RFC？（不确定请先与 Program Core 确认）
+      options:
+        - 需要 RFC
+        - 不需要 RFC
+        - 待确认
+    validations:
+      required: true

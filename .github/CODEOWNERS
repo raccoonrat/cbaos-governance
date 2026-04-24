@@ -1,0 +1,26 @@
+# 与根目录 CODEOWNERS 保持同步；GitHub 识别本路径（或根目录 /docs）。
+#
+# Replace @cbaos/... with actual GitHub org/team handles before use.
+#
+* @cbaos/program-core @cbaos/repo-governors
+
+/README.md              @cbaos/program-core @cbaos/repo-governors
+/CONTRIBUTING.md        @cbaos/repo-governors @cbaos/program-core
+/SECURITY.md            @cbaos/security-leads @cbaos/repo-governors
+/CHANGELOG.md           @cbaos/repo-governors
+
+/CHARTER/               @cbaos/program-core @cbaos/chief-scientists
+/ORG/                   @cbaos/program-core @cbaos/repo-governors
+/REPO_POLICY/           @cbaos/program-core @cbaos/repo-governors
+
+/CLAIMS/                @cbaos/chief-scientists @cbaos/release-governance
+/RELEASE/               @cbaos/release-governance @cbaos/program-core
+/EVIDENCE/              @cbaos/evidence-engine @cbaos/release-governance
+
+/.github/               @cbaos/repo-governors @cbaos/security-leads
+/.github/workflows/     @cbaos/repo-governors @cbaos/security-leads
+/.github/ISSUE_TEMPLATE/ @cbaos/repo-governors @cbaos/program-core
+/.github/pull_request_template.md @cbaos/repo-governors @cbaos/program-core
+
+*_zh_*.md               @cbaos/geo-obligation @cbaos/release-governance
+*_cn_*.md               @cbaos/geo-obligation @cbaos/release-governance

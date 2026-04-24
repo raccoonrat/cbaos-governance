@@ -1,0 +1,57 @@
+name: 发布阻断
+description: 报告阻碍有界发布就绪（bounded release readiness）的阻断项
+title: "[release-blocker] "
+labels: ["release-blocker"]
+body:
+  - type: textarea
+    id: blocker
+    attributes:
+      label: 阻断描述
+      description: 什么阻碍了发布就绪？
+    validations:
+      required: true
+  - type: dropdown
+    id: blocker_area
+    attributes:
+      label: 阻断领域
+      options:
+        - Acceptance Contract
+        - Release Evidence Pack
+        - Mechanism Evidence Pack
+        - Runtime behavior
+        - Fail-safe semantics
+        - Evidence schema
+        - Track A / Track B discipline
+        - Geo / multilingual gating
+        - Approval / release decision path
+        - Rollback path
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: 发布影响
+      description: 何种发布决策被阻塞？（release / restricted release / degrade / rollback）
+    validations:
+      required: true
+  - type: textarea
+    id: missing_items
+    attributes:
+      label: 缺失或无效项
+      description: 哪些必填项缺失、不完整或无效？
+    validations:
+      required: true
+  - type: textarea
+    id: needed_action
+    attributes:
+      label: 所需行动
+      description: 清除阻断前必须完成什么？
+    validations:
+      required: true
+  - type: input
+    id: owner
+    attributes:
+      label: 负责方
+      placeholder: 团队或个人
+    validations:
+      required: false

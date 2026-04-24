@@ -1,0 +1,60 @@
+name: 制品缺口
+description: 报告 CBA-OS 程序所需但缺失或不完整的工件
+title: "[artifact-gap] "
+labels: ["artifact-gap"]
+body:
+  - type: dropdown
+    id: artifact_type
+    attributes:
+      label: 制品类型
+      options:
+        - Theory note / RFC
+        - Kernel implementation
+        - Protocol spec
+        - Benchmark artifact
+        - Evidence schema
+        - Acceptance contract
+        - Release evidence pack
+        - Multilingual / geo artifact
+        - Governance / documentation
+    validations:
+      required: true
+  - type: textarea
+    id: missing_artifact
+    attributes:
+      label: 缺失或不完整的工件
+      description: 具体缺什么？何处不完整？
+    validations:
+      required: true
+  - type: textarea
+    id: why_needed
+    attributes:
+      label: 为何需要？
+      description: 该工件对 theory → system → benchmark → release 连续性的必要性。
+    validations:
+      required: true
+  - type: textarea
+    id: blocking_scope
+    attributes:
+      label: 阻塞了什么？
+      description: 是否阻塞运行时、证据、发布、geo 门控或主张？
+    validations:
+      required: true
+  - type: input
+    id: owner
+    attributes:
+      label: 建议负责人
+      placeholder: 团队或个人
+    validations:
+      required: false
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 优先级
+      options:
+        - P0
+        - P1
+        - P2
+        - P3
+    validations:
+      required: true
