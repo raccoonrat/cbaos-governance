@@ -3,7 +3,15 @@
 > A = Accountable（最终拍板）, R = Responsible（执行）, C = Consulted（咨询）, I = Informed（知会）  
 > 引擎列以 **Engine Lead（引擎负责人）** 代表各引擎内的执行与汇总；小团队可由 Hub 角色兼任。
 
-**列说明**：PA = Program Architect；CSL = Chief Systems Lead；CERL = Chief Evidence & Release Lead；GSL = Geo-Semantic Lead；ROG = Repo Governor；T/S/E/G = 各 Engine Lead；RB = Release Board（集体决策，表中 **A** 表示程序性批准责任由 Board 规则定义，通常不落在单人）。
+**列说明**：
+
+- PA = Program Architect
+- CSL = Chief Systems Lead
+- CERL = Chief Evidence & Release Lead
+- GSL = Geo-Semantic Lead
+- ROG = Repo Governor
+- T/S/E/G = 各 Engine Lead
+- RB = Release Board（集体决策；表中 **A** 表示程序性批准责任由 Board 规则定义，通常不落在单人）
 
 ## 1. 中枢与横切活动
 
