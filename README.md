@@ -18,7 +18,8 @@
 ## 快速开始
 
 1. 阅读 [CHARTER/program_charter.md](CHARTER/program_charter.md)、[CHARTER/north_star_question.md](CHARTER/north_star_question.md) 与 [CHARTER/glossary.md](CHARTER/glossary.md)（含 Track A/B 与 JEE+R 术语）。  
-2. 阅读 [ORG/org_structure.md](ORG/org_structure.md)，并在 [ORG/team_interfaces.md](ORG/team_interfaces.md)、[ORG/role_matrix.md](ORG/role_matrix.md) 中填入 Program Core / 各引擎 / Release Board 的真实人选与流程细节；贡献流程见 [CONTRIBUTING.md](CONTRIBUTING.md)。  
+2. 阅读 [ORG/org_structure.md](ORG/org_structure.md)，并在 [ORG/team_interfaces.md](ORG/team_interfaces.md)、[ORG/role_matrix.md](ORG/role_matrix.md) 中填入 Program Core / 各引擎 / Release Board 的真实人选与流程细节。  
+   贡献流程见 [CONTRIBUTING.md](CONTRIBUTING.md)。  
 3. 仓库与 PR/Issue 纪律见 [REPO_POLICY/repo_policy.md](REPO_POLICY/repo_policy.md)。
 4. 将 [REPO_POLICY/codeowners](REPO_POLICY/codeowners) 与 [.github/CODEOWNERS](.github/CODEOWNERS) 中的 `@your-org/cbaos-governance-maintainers` 替换为实际团队或用户；二者建议保持同步。  
 5. 将 [.github/ISSUE_TEMPLATE/config.yml](.github/ISSUE_TEMPLATE/config.yml) 内 `contact_links` 的 URL 改为本仓库真实地址；按需配置 GitHub **Private vulnerability reporting**（见 [SECURITY.md](SECURITY.md)）。

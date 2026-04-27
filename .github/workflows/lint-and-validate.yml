@@ -108,6 +108,7 @@ jobs:
 
           files=$(find . -type f \
             ! -path "./.git/*" \
+            ! -path "./.github/workflows/*" \
             ! -path "./node_modules/*" \
             ! -path "./.venv/*")
 
