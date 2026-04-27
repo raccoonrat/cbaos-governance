@@ -22,7 +22,11 @@
 
 ### Changed
 
-- 依据《[0424-3]研发概览-2-研发组织+计划-3.md》扩展：[CONTRIBUTING.md](CONTRIBUTING.md)（贡献类型与工作流）、[SECURITY.md](SECURITY.md)（全章安全与保证缺陷视角）、[.github/pull_request_template.md](.github/pull_request_template.md)（分节清单）；Issue 表单对齐五模板并新增 `failure_mode.yml`、`schema_or_policy_change.yml`。
+- 依据《[0424-3]研发概览-2-研发组织+计划-3.md》扩展：
+  - [CONTRIBUTING.md](CONTRIBUTING.md)（贡献类型与工作流）
+  - [SECURITY.md](SECURITY.md)（全章安全与保证缺陷视角）
+  - [.github/pull_request_template.md](.github/pull_request_template.md)（分节清单）
+  - Issue 表单对齐五模板并新增 `failure_mode.yml`、`schema_or_policy_change.yml`。
 
 ### Added
 
